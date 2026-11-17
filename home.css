@@ -1,0 +1,167 @@
+/* ==========================================================
+   HOME (index.html)
+========================================================== */
+
+/* ---------- Apresentação inicial ---------- */
+
+.inicio {
+    min-height: 490px;
+    padding: 70px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    background: linear-gradient(120deg, #e8edff, #f5eaff);
+}
+
+.inicio-texto {
+    max-width: 570px;
+    flex: 1;
+}
+
+.inicio h2 {
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.2;
+    margin: 0 0 20px;
+    color: var(--azul-escuro);
+}
+
+.inicio p {
+    color: #4f5a72;
+    margin-bottom: 20px;
+}
+
+.inicio-imagem {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio-imagem img {
+    width: 100%;
+    max-width: 420px;
+    object-fit: contain;
+}
+
+/* ---------- Seções ---------- */
+
+.secao {
+    padding: 75px 10%;
+}
+
+.secao > p {
+    max-width: 850px;
+    margin: 0 auto 16px;
+    color: var(--azul-escuro);
+}
+
+.titulo-secao {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--azul-escuro);
+    font-size: clamp(25px, 4vw, 34px);
+}
+
+/* ---------- Cartões ---------- */
+
+.grade-cartoes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Grade com apenas 2 cartões: centralizada, sem colunas vazias */
+.grade-cartoes--2 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cartao {
+    background: #f5d5c7;
+    padding: 30px;
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+    border: 1px solid #e9eaf3;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartao:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(40, 48, 90, 0.15);
+}
+
+.cartao h3 {
+    color: var(--azul-escuro);
+    margin: 0 0 12px;
+    font-size: 20px;
+}
+
+.cartao p {
+    color: var(--texto-suave);
+    font-size: 15px;
+}
+
+/* Imagens dentro dos cartões: tamanho uniforme e alinhadas ao fundo */
+.cartao img {
+    width: 100%;
+    max-width: 260px;
+    height: 130px;
+    object-fit: contain;
+    margin: auto auto 0;
+    padding-top: 18px;
+}
+
+.cartao .botao {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.cartao p + .botao {
+    margin-top: 18px;
+}
+
+/* ---------- Responsividade ---------- */
+
+@media (max-width: 900px) {
+    .inicio {
+        flex-direction: column;
+        text-align: center;
+        padding: 55px 7%;
+    }
+
+    .inicio-texto { max-width: 100%; }
+    .inicio-imagem { width: 100%; }
+    .inicio-imagem img { max-width: 340px; }
+
+    .secao { padding: 60px 7%; }
+
+    .grade-cartoes { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .inicio { padding: 45px 6%; gap: 25px; }
+    .inicio h2 { font-size: 30px; }
+    .inicio-imagem img { max-width: 280px; }
+
+    .secao { padding: 50px 6%; }
+    .titulo-secao { margin-bottom: 30px; }
+
+    .grade-cartoes,
+    .grade-cartoes--2 {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .cartao { padding: 25px; }
+}
+
+@media (max-width: 380px) {
+    .inicio h2 { font-size: 26px; }
+    .cartao { padding: 20px; }
+}

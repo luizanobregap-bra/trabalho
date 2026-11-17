@@ -1,0 +1,244 @@
+/* ==========================================================
+   PÁGINAS INTERNAS (maquete.html e equipe.html)
+========================================================== */
+
+.pagina {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 25px;
+}
+
+.pagina h2 {
+    color: var(--azul-titulo);
+    margin-bottom: 20px;
+}
+
+.pagina p {
+    color: #3c4458;
+    line-height: 1.8;
+}
+
+/* ---------- Blocos de texto ---------- */
+
+.introducao,
+.objetivo,
+.conclusao {
+    background-color: var(--branco);
+    padding: 35px;
+    border-radius: 15px;
+    margin-bottom: 35px;
+}
+
+.introducao h2 {
+    font-size: 30px;
+    margin-top: 8px;
+}
+
+.introducao p {
+    margin-top: 12px;
+}
+
+.subtitulo {
+    color: var(--azul-claro);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ==========================================================
+   EQUIPE
+========================================================== */
+
+.equipe {
+    text-align: center;
+    margin: 45px 0;
+}
+
+.cards-equipe {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.card-integrante {
+    background-color: var(--branco);
+    padding: 30px 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #00000012;
+    border-bottom: 5px solid var(--azul-claro);
+    transition: transform 0.3s;
+}
+
+.card-integrante:hover {
+    transform: translateY(-5px);
+}
+
+.icone-integrante {
+    background-color: #b7e7f2;
+    color: var(--azul-titulo);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 auto 18px;
+}
+
+.card-integrante h3 {
+    color: var(--azul-titulo);
+    margin-bottom: 10px;
+}
+
+.card-integrante p {
+    color: #666;
+}
+
+/* ==========================================================
+   MAQUETE — materiais e etapas
+========================================================== */
+
+.materiais,
+.etapas {
+    margin: 45px 0;
+}
+
+.lista-materiais {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.material-card {
+    background-color: var(--branco);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #00000012;
+    border-left: 5px solid var(--azul-claro);
+}
+
+.material-card h3 {
+    color: var(--azul-titulo);
+    margin-bottom: 15px;
+}
+
+.material-card ul {
+    padding-left: 20px;
+    line-height: 2;
+    color: #3c4458;
+}
+
+.etapa {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: var(--branco);
+    padding: 22px;
+    margin: 18px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+.etapa-numero {
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    min-width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.etapa h3 {
+    color: var(--azul-titulo);
+    margin-bottom: 8px;
+}
+
+.etapa p {
+    line-height: 1.7;
+    color: #555;
+}
+
+/* ==========================================================
+   MAQUETE — galeria de fotos
+========================================================== */
+
+.galeria {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.galeria > p {
+    margin-bottom: 25px;
+}
+
+.fotos-maquete {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.fotos-maquete figure {
+    background-color: var(--branco);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px #00000015;
+}
+
+/* Todas as fotos com o mesmo tamanho, independentemente da proporção original */
+.fotos-maquete img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s;
+}
+
+.fotos-maquete img:hover {
+    transform: scale(1.04);
+}
+
+.fotos-maquete figcaption {
+    padding: 15px;
+    color: var(--azul-titulo);
+    font-weight: bold;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+
+@media (max-width: 768px) {
+    .pagina { padding: 25px 15px; }
+
+    .cards-equipe,
+    .lista-materiais {
+        grid-template-columns: 1fr;
+    }
+
+    .fotos-maquete { grid-template-columns: repeat(2, 1fr); }
+    .fotos-maquete img { height: 220px; }
+
+    .introducao,
+    .objetivo,
+    .conclusao { padding: 25px; }
+
+    .introducao h2 { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+    .fotos-maquete { grid-template-columns: 1fr; }
+    .fotos-maquete img { height: 280px; }
+
+    .etapa { gap: 12px; padding: 15px; }
+
+    .introducao,
+    .objetivo,
+    .conclusao { padding: 20px; }
+}

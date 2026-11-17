@@ -1,0 +1,180 @@
+/* ==========================================================
+   BASE — estilos compartilhados por todas as páginas
+   (reset, tipografia, cabeçalho, menu, botões e rodapé)
+========================================================== */
+
+:root {
+    --azul-escuro: #172d50;
+    --azul-medio: #3d699b;
+    --azul-titulo: #295794;
+    --azul-claro: #639bda;
+    --lilas: #a9a0ed;
+    --fundo-pagina: #b2bdeb;
+    --texto: #26324d;
+    --texto-suave: #4a5368;
+    --branco: #ffffff;
+    --raio: 14px;
+    --sombra: 0 5px 20px rgba(40, 48, 90, 0.08);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--fundo-pagina);
+    color: var(--texto);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Nenhuma imagem do site ultrapassa o tamanho do seu contêiner */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--lilas);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+}
+
+/* ==========================================================
+   CABEÇALHO E MENU
+========================================================== */
+
+.topo {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.topo h1 {
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+.topo p {
+    color: #d0d7e8;
+    font-size: 14px;
+}
+
+.menu {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.menu a {
+    color: #d6dcf7;
+    font-size: 14px;
+    font-weight: 600;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+    color: var(--branco);
+    border-bottom-color: var(--lilas);
+}
+
+/* ==========================================================
+   BOTÕES
+========================================================== */
+
+.botao {
+    display: inline-block;
+    background: var(--azul-medio);
+    color: var(--branco);
+    padding: 13px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 12px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.botao:hover {
+    background: var(--azul-escuro);
+    transform: translateY(-3px);
+}
+
+/* ==========================================================
+   RODAPÉ
+========================================================== */
+
+.rodape {
+    background: var(--azul-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.rodape p {
+    color: #d0d7e8;
+    font-size: 13px;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+
+@media (max-width: 900px) {
+    .topo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu {
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .topo { padding: 20px 5%; }
+    .topo h1 { font-size: 26px; }
+    .menu { gap: 12px 18px; }
+    .menu a { font-size: 12px; }
+    .rodape { padding: 28px 15px; }
+}
+
+@media (max-width: 380px) {
+    .menu { gap: 10px; }
+    .menu a { font-size: 11px; }
+    .botao { padding: 11px 18px; font-size: 13px; }
+}
